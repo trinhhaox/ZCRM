@@ -521,7 +521,7 @@ onMounted(async () => {
 
 <style scoped>
 .friends-page {
-  height: calc(100vh - var(--smax-topnav-h, 52px));
+  height: calc(100vh - var(--smax-topnav-h, 48px));
   background: var(--surface-2);
   display: flex; flex-direction: column;
   overflow: hidden;

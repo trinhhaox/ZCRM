@@ -9,9 +9,9 @@
    (partial = roster + cảnh báo "quét 1 phần")
 -->
 <template>
-  <div class="d-flex flex-column h-100">
+  <div class="d-flex flex-column h-100 min-h-0">
     <!-- Toolbar: account picker + back to groups -->
-    <div class="d-flex align-center pa-4 pb-2 gap-3">
+    <div class="d-flex align-center pa-4 pb-2 gap-3 flex-shrink-0">
       <div>
         <div class="text-caption text-medium-emphasis">Nhóm Zalo / Quét thành viên</div>
         <h1 class="text-h5">Quét nhóm &amp; thành viên</h1>
@@ -46,10 +46,10 @@
       </v-select>
     </div>
 
-    <div class="flex-1-1 overflow-auto px-4 pb-4">
+    <div class="flex-1-1 overflow-auto px-4 pb-4 min-h-0 d-flex flex-column">
       <!-- ════════ STATE 1: PICK GROUPS ════════ -->
-      <v-card v-if="phase === 'pick'" variant="outlined" class="d-flex flex-column">
-        <div class="d-flex align-center gap-3 pa-4 border-b">
+      <v-card v-if="phase === 'pick'" variant="outlined" class="d-flex flex-column flex-1-1 min-h-0">
+        <div class="d-flex align-center gap-3 pa-4 border-b flex-shrink-0">
           <div>
             <div class="text-subtitle-1 font-weight-bold">Chọn nhóm để quét thành viên</div>
             <div class="text-caption text-medium-emphasis">
@@ -69,7 +69,7 @@
         </div>
 
         <!-- search + select-all -->
-        <div class="d-flex align-center gap-3 pa-3 border-b flex-wrap">
+        <div class="d-flex align-center gap-3 pa-3 border-b flex-wrap flex-shrink-0">
           <v-text-field
             v-model="search"
             placeholder="Tìm nhóm..."
@@ -92,7 +92,7 @@
           <div class="text-subtitle-1">Chưa có nhóm nào</div>
           <div class="text-body-2">Nick phải đang là thành viên của nhóm để quét.</div>
         </div>
-        <v-list v-else lines="two" density="comfortable">
+        <v-list v-else lines="two" density="comfortable" class="flex-1-1 overflow-auto">
           <v-list-item
             v-for="g in filteredGroups"
             :key="g.id"
@@ -120,7 +120,7 @@
         </v-list>
 
         <!-- sticky action bar -->
-        <div class="d-flex align-center gap-3 pa-3 border-t sticky-bar">
+        <div class="d-flex align-center gap-3 pa-3 border-t sticky-bar flex-shrink-0">
           <div class="text-body-2 font-weight-medium">
             Đã chọn <span class="text-primary font-weight-bold">{{ selectedIds.size }}</span> nhóm
             <span v-if="selectedIds.size" class="text-medium-emphasis">

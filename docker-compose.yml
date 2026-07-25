@@ -57,7 +57,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${DB_USER:-crmuser}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-crmpass}
       POSTGRES_DB: ${DB_NAME:-zalocrm}
       # TZ giờ VN cho OS container + log. Storage vẫn UTC (xem -c timezone bên dưới).
       TZ: Asia/Ho_Chi_Minh
@@ -111,7 +111,7 @@ services:
     # profiles: redis  ← REMOVED M1 2026-06-01: Redis là dependency cứng của BullMQ
 
   minio:
-    image: minio/minio:latest
+    image: minio/minio:RELEASE.2022-10-29T06-21-33Z
     container_name: zalo-crm-minio
     restart: unless-stopped
     command: server /data --console-address ":9001"
@@ -193,6 +193,7 @@ services:
   # MEDIA_AV_ENABLED=1. Chưa bật → scanBuffer trả 'skipped' ngay, 0 kết nối.
   clamav:
     image: clamav/clamav:1.4
+    platform: linux/amd64
     container_name: zalo-crm-clamav
     restart: unless-stopped
     environment:

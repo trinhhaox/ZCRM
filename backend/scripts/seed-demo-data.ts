@@ -1,3 +1,4 @@
+import 'dotenv/config';
 /**
  * seed-demo-data.ts — Tạo dữ liệu DEMO cho ZaloCRM (org "Thiên Phúc").
  * Gồm: 5 phòng ban, 30 nhân viên, ~120 khách hàng, và kịch bản marketing demo

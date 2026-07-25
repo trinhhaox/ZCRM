@@ -549,8 +549,18 @@ function logout() {
 
 .smax-main {
   background: var(--smax-grey-100);
+  height: calc(100vh - 48px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-.smax-main :deep(.v-main__wrap) { min-height: calc(100vh - var(--smax-topnav-h)); }
+.smax-main :deep(.v-main__wrap) {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
 /* Vuetify menus rendered from v-menu inherit theme automatically.
    Force light surface in case parent has legacy-dark applied. */

@@ -1581,7 +1581,7 @@ watch(
      space + own scroll (V + H) → toolbar/stats stay above khi scroll bảng. */
   display: flex;
   flex-direction: column;
-  height: calc(100vh - var(--smax-topnav-h, 52px));
+  height: calc(100vh - var(--smax-topnav-h, 48px));
   overflow: hidden;
 }
 .smax-contacts-page > .page-header,
